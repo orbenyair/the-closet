@@ -1,0 +1,4 @@
+{
+  "buildCommand": "node -e \"require('fs').writeFileSync('src/config.js', 'window.MP_TOKEN = ' + JSON.stringify(process.env.MIXPANEL_TOKEN || '') + ';\\n')\"",
+  "outputDirectory": "src"
+}

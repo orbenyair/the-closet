@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THE CLOSET · ארון מתחלף</title>
+<meta name="description" content="12 פריטים חדשים כל חודש, בלי לקנות ובלי לאחסן. פיילוט לנשים בגוש דן.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;600;700&display=swap">
+<style>
+:root{
+  --bg:#FAF6F3; --surface:#FFFFFF; --ink:#211B26; --muted:#6B6270; --line:#EADFD9;
+  --rose:#A8325A; --rose-ink:#FFF5F8; --blush:#F4E4E1; --sage:#7E9C8C; --gold:#C9A46A;
+  --display:'Frank Ruhl Libre', 'Times New Roman', serif;
+  --body:'Assistant', Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:18px}
+.logo{font-family:var(--display);font-weight:900;font-size:24px;letter-spacing:3px;direction:ltr}
+.logo span{color:var(--rose)}
+.pill{font-size:14px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 14px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--rose);color:var(--rose-ink);font-family:var(--body);font-weight:700;font-size:18px;border:0;border-radius:999px;padding:15px 30px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn:focus-visible,.chip:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+section{padding-block:56px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+h1{font-size:clamp(40px,7vw,72px);line-height:1.05;font-weight:900}
+h1 em{font-style:normal;color:var(--rose)}
+h2{font-size:clamp(30px,4.5vw,44px);line-height:1.15;font-weight:700;margin-bottom:12px}
+.lede{font-size:21px;color:var(--muted);max-width:34em;margin:16px 0 26px}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:2px;color:var(--rose);margin-bottom:8px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.small{font-size:15px;color:var(--muted);margin-top:14px}
+.closet{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:26px;box-shadow:0 20px 50px -30px rgba(33,27,38,.35)}
+.rail{height:6px;border-radius:3px;background:var(--ink);opacity:.8;margin:0 6px 14px}
+.hangers{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.item{aspect-ratio:3/5;border-radius:12px 12px 8px 8px;position:relative}
+.item::before{content:"";position:absolute;top:-12px;left:50%;width:14px;height:12px;border:2px solid var(--ink);border-bottom:0;border-radius:8px 8px 0 0;transform:translateX(-50%);opacity:.6}
+.closet-foot{display:flex;justify-content:space-between;margin-top:16px;font-size:15px;color:var(--muted)}
+.closet-foot b{color:var(--ink)}
+.pains{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;min-width:0}
+.card h3{font-size:22px;margin-bottom:6px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.quote{font-family:var(--display);font-size:clamp(22px,3vw,28px);margin:30px 0 0;padding-right:18px;border-right:4px solid var(--rose)}
+.band{background:var(--blush)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.step{background:var(--surface);border-radius:20px;padding:22px;min-width:0}
+.step b{display:block;font-family:var(--display);font-size:40px;color:var(--rose);line-height:1}
+.step h3{font-size:22px;margin:10px 0 4px}
+.step p{margin:0;color:var(--muted);font-size:16px}
+.quiz{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:28px;margin-top:22px}
+.q{margin-bottom:22px}
+.q p{font-weight:700;margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font:inherit;font-size:16px;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:999px;padding:9px 18px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.err{color:var(--rose);font-size:15px;min-height:1.2em;margin:0 0 10px}
+#result{margin-top:26px}
+.grid12{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.piece{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg);min-width:0}
+.swatch{height:86px}
+.piece span{display:block;padding:8px 10px;font-size:14px;font-weight:600;line-height:1.3}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.plan{background:var(--ink);color:var(--bg);border-radius:28px;padding:32px}
+.plan .num{font-family:var(--display);font-size:64px;font-weight:900;line-height:1}
+.plan .num small{font-size:22px;font-weight:500}
+.plan ul{list-style:none;padding:0;margin:20px 0 26px;display:grid;gap:8px}
+.plan li::before{content:"✓";color:var(--gold);font-weight:700;margin-left:10px}
+.plan .btn{width:100%;font-size:19px}
+.plan .fine{font-size:14px;opacity:.75;margin-top:12px;text-align:center}
+.trust{display:grid;gap:14px}
+.trust .card h3{font-size:20px}
+footer{border-top:1px solid var(--line);padding-block:22px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+@media (max-width:820px){
+  .hero .wrap,.price{grid-template-columns:1fr}
+  .pains,.steps{grid-template-columns:1fr}
+  .grid12{grid-template-columns:repeat(3,minmax(0,1fr))}
+  section{padding-block:40px}
+}
+@media (max-width:420px){.grid12{grid-template-columns:repeat(2,minmax(0,1fr))}.hangers{gap:6px}}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .15s}.btn:hover{transform:translateY(-1px)}}
+</style>
+<script src="config.js"></script>
+<script type="text/javascript">
+(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+var MP_ON = !!(window.MP_TOKEN);
+if (MP_ON) mixpanel.init(window.MP_TOKEN, {track_pageview: true, record_sessions_percent: 100, persistence: "localStorage"});
+function track(name, props){ if(!MP_ON) return; try{ mixpanel.track(name, Object.assign({version:"backup"}, props||{})); }catch(e){} }
+</script>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo">THE <span>CLOSET</span></div>
+  <div class="pill">פיילוט · גוש דן · 10 מנויות ראשונות</div>
+</div></header>
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="eyebrow">ארון מתחלף לנשים עובדות</div>
+    <h1>Netflix <em>לארון הבגדים</em></h1>
+    <p class="lede">12 פריטים חדשים כל חודש, מותאמים לסגנון ולמידה שלך. לובשות, מחזירות ומחליפות. בלי לקנות, בלי לאחסן, בלי בוקר מול ארון מלא שאין בו מה ללבוש.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#quiz" id="cta-hero">בני את הארון שלך</a>
+      <a class="btn ghost" href="#price" id="cta-price">כמה זה עולה?</a>
+    </div>
+    <p class="small">30 שניות, 3 שאלות. בלי הרשמה.</p>
+  </div>
+  <div class="closet" aria-label="איור של ארון עם 12 פריטים">
+    <div class="rail"></div>
+    <div class="hangers" id="hero-closet"></div>
+    <div class="closet-foot"><span>הארון של החודש</span><b>12 פריטים · מתחלף כל חודש</b></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="eyebrow">מכירה את זה?</div>
+  <h2>הארון מלא. אין מה ללבוש.</h2>
+  <div class="pains">
+    <div class="card"><h3>בוקר מבוזבז</h3><p>עומדת מול הארון, מחליפה שלוש פעמים, ויוצאת באיחור לפגישה החשובה של היום.</p></div>
+    <div class="card"><h3>כסף על בגדים שלא לובשים</h3><p>קונות בשביל אירוע אחד, לובשות פעם או פעמיים, והבגד נשאר לתפוס מקום.</p></div>
+    <div class="card"><h3>שקיות שמחכות לתרומה</h3><p>בגדים טובים במצב מצוין נזרקים לפח, כי אין זמן ואין מקום.</p></div>
+  </div>
+  <p class="quote">אנחנו לא באמת רוצות עוד בגדים. אנחנו רוצות גיוון.</p>
+</div></section>
+<section class="band"><div class="wrap">
+  <div class="eyebrow">איך זה עובד</div>
+  <h2>שלושה צעדים, פעם בחודש</h2>
+  <div class="steps">
+    <div class="step"><b>1</b><h3>בוחרות סגנון ומידה</h3><p>שאלון קצר, והסטייליסטית שלנו מרכיבה לך ארון אישי.</p></div>
+    <div class="step"><b>2</b><h3>מקבלות ארון עד הבית</h3><p>12 פריטים נקיים, מגוהצים ומוכנים ללבישה.</p></div>
+    <div class="step"><b>3</b><h3>מחזירות ומחליפות</h3><p>בסוף החודש אוספים את הישן ומביאים חדש. אהבת פריט? משאירה אותו.</p></div>
+  </div>
+</div></section>
+<section id="quiz"><div class="wrap">
+  <div class="eyebrow">נסי עכשיו</div>
+  <h2>ככה ייראה הארון שלך החודש</h2>
+  <div class="quiz">
+    <div class="q"><p>איזה סגנון הכי את?</p><div class="chips" data-q="style">
+      <button class="chip" type="button" data-v="classic">קלאסי משרדי</button>
+      <button class="chip" type="button" data-v="minimal">מינימליסטי</button>
+      <button class="chip" type="button" data-v="bold">צבעוני ונועז</button>
+      <button class="chip" type="button" data-v="casual">קז'ואל אלגנטי</button>
+    </div></div>
+    <div class="q"><p>מה המידה שלך?</p><div class="chips" data-q="size">
+      <button class="chip" type="button" data-v="XS">XS</button><button class="chip" type="button" data-v="S">S</button><button class="chip" type="button" data-v="M">M</button><button class="chip" type="button" data-v="L">L</button><button class="chip" type="button" data-v="XL">XL</button>
+    </div></div>
+    <div class="q"><p>בשביל מה בעיקר?</p><div class="chips" data-q="use">
+      <button class="chip" type="button" data-v="work">עבודה ופגישות</button>
+      <button class="chip" type="button" data-v="events">אירועים וערבים</button>
+      <button class="chip" type="button" data-v="daily">יומיום</button>
+    </div></div>
+    <p class="err" id="quiz-err" role="alert"></p>
+    <button class="btn" type="button" id="quiz-go">הראו לי את הארון שלי</button>
+    <div id="result" hidden>
+      <h3 id="result-title" style="font-size:26px"></h3>
+      <div class="grid12" id="result-grid"></div>
+      <p class="small">דוגמה לארון שהסטייליסטית שלנו מרכיבה. הארון האמיתי שלך מותאם אישית אחרי שיחה קצרה.</p>
+      <a class="btn" href="#price" id="cta-result" style="margin-top:8px">אני רוצה את הארון הזה</a>
+    </div>
+  </div>
+</div></section>
+<section id="price" class="band"><div class="wrap price">
+  <div class="plan">
+    <div style="font-weight:700;letter-spacing:2px;opacity:.8">מנוי פיילוט</div>
+    <div class="num">200 ₪ <small>לחודש</small></div>
+    <ul>
+      <li>12 פריטים חדשים כל חודש</li>
+      <li>ניקוי מקצועי לכל פריט</li>
+      <li>איסוף ומשלוח עד הבית, בגוש דן</li>
+      <li>החלפה מלאה כל חודש</li>
+      <li>ביטול בכל רגע, בלי התחייבות</li>
+    </ul>
+    <a class="btn" id="cta-pilot" href="#" target="_blank" rel="noopener">שריינו לי מקום בפיילוט</a>
+    <p class="fine">10 מקומות בלבד. נחזור אלייך בוואטסאפ תוך 24 שעות.</p>
+  </div>
+  <div class="trust">
+    <div class="card"><h3>נקי, באמת</h3><p>כל פריט עובר ניקוי מקצועי ובדיקת איכות לפני שהוא מגיע אלייך.</p></div>
+    <div class="card"><h3>רק מה שמתאים לך</h3><p>מידה, סגנון ועונה. לא אהבת? מחליפות כבר בחודש הבא.</p></div>
+    <div class="card"><h3>טוב גם לעולם</h3><p>בגד אחד, הרבה חיים. פחות קניות, פחות זבל טקסטיל.</p></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">
+  <span>THE CLOSET · פיילוט ניסיוני</span>
+  <span>דוגמת MVP לסדנת "מרעיון ללינק חי" · נבנה עם Claude Code</span>
+</div></footer>
+<script>
+(function(){
+  var PHONE = "972547691030";
+  var C = {
+    classic:{name:"קלאסי משרדי",items:[["בלייזר נייבי","#1F2A44"],["חולצת משי לבנה","#F7F4EF"],["מכנסי פשתן בז'","#D9C7A7"],["שמלת מעטפת שחורה","#1B1B1D"],["סוודר קשמיר אפור","#A7A5A6"],["חצאית עיפרון","#3E3A3F"],["טרנץ' קאמל","#B98A55"],["חולצה מכופתרת תכלת","#BBD2E6"],["מכנסיים מחויטים","#55525A"],["קרדיגן שמנת","#EFE6D6"],["שמלת סריג בורדו","#6E2236"],["ז'קט טוויד","#8C7D6E"]]},
+    minimal:{name:"מינימליסטי",items:[["טי שירט כותנה לבנה","#FAFAF8"],["מכנסיים רחבים שחורים","#18181A"],["סוודר אוברסייז אבן","#CFC6B8"],["שמלת סלים חול","#D8C6AE"],["ג'ינס ישר","#4C627F"],["גולף דק שחור","#232325"],["מעיל צמר אפור","#8E8C8D"],["חולצת פופלין","#F1EFEA"],["חצאית מידי","#6F6A64"],["וסט סריג","#BFB4A3"],["ז'קט ג'ינס בהיר","#9DB0C6"],["שמלת חולצה","#E4DCCF"]]},
+    bold:{name:"צבעוני ונועז",items:[["שמלת מידי פוקסיה","#C2306B"],["בלייזר ירוק אמרלד","#1E7A5A"],["חולצת הדפס פרחים","#E59A3B"],["מכנסיים כתומים","#E0662F"],["סוודר טורקיז","#2AA3A6"],["חצאית פליסה סגולה","#6B3FA0"],["שמלת עטיפה אדומה","#B8242C"],["ז'קט צהוב חרדל","#D9A62E"],["חולצת סאטן כחול רויאל","#2A4DB3"],["ג'ינס לבן","#F5F3EE"],["קרדיגן ורוד","#E7A1B6"],["מעיל משובץ","#7A4B3A"]]},
+    casual:{name:"קז'ואל אלגנטי",items:[["ג'ינס מום","#5B7393"],["חולצת פשתן לבנה","#F4F1EA"],["בלייזר אוברסייז בז'","#CBB696"],["טופ סאטן שמפניה","#E8D5B5"],["שמלת חולצה זית","#6E7448"],["סוודר רך בצבע שיבולת","#D7C4A0"],["מכנסי צ'ינו","#B9A27E"],["ז'קט עור שחור","#222124"],["חצאית פליסה מנטה","#A9CDBE"],["גופייה סריג","#D9CEC3"],["קרדיגן ארוך","#9C8F82"],["שמלת קיץ מודפסת","#C98B6B"]]}
+  };
+  var USE={work:"עבודה ופגישות",events:"אירועים וערבים",daily:"יומיום"};
+  var ans={};
+  function waLink(){
+    var t="היי, אני רוצה להצטרף לפיילוט של THE CLOSET";
+    if(ans.style) t+="\nסגנון: "+C[ans.style].name;
+    if(ans.size) t+="\nמידה: "+ans.size;
+    if(ans.use) t+="\nבשביל: "+USE[ans.use];
+    return "https://wa.me/"+PHONE+"?text="+encodeURIComponent(t);
+  }
+  var el=document.getElementById('hero-closet'),cols=["#1F2A44","#F7F4EF","#C2306B","#D9C7A7","#1E7A5A","#B98A55","#A9CDBE","#6E2236","#E8D5B5","#2A4DB3","#CBB696","#222124"];
+  el.innerHTML=cols.map(function(c){return '<div class="item" style="background:'+c+';border:1px solid rgba(0,0,0,.08)"></div>'}).join('');
+  var started=false;
+  document.querySelectorAll('.chips').forEach(function(g){
+    g.addEventListener('click',function(e){
+      var b=e.target.closest('.chip'); if(!b) return;
+      g.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true'); ans[g.dataset.q]=b.dataset.v;
+      if(!started){started=true;track('quiz_start');}
+      document.getElementById('cta-pilot').href=waLink();
+    });
+  });
+  document.getElementById('quiz-go').addEventListener('click',function(){
+    var err=document.getElementById('quiz-err');
+    if(!ans.style||!ans.size||!ans.use){err.textContent='בחרי סגנון, מידה ושימוש כדי שנוכל להרכיב לך ארון.';return}
+    err.textContent='';
+    var s=C[ans.style];
+    document.getElementById('result-title').textContent='הארון שלך: '+s.name+' · מידה '+ans.size+' · '+USE[ans.use];
+    document.getElementById('result-grid').innerHTML=s.items.map(function(it){return '<div class="piece"><div class="swatch" style="background:'+it[1]+'"></div><span>'+it[0]+'</span></div>'}).join('');
+    document.getElementById('result').hidden=false;
+    track('quiz_complete',{style:ans.style,size:ans.size,use:ans.use});
+  });
+  var pilot=document.getElementById('cta-pilot');
+  pilot.href=waLink();
+  pilot.addEventListener('click',function(){track('pilot_click',{style:ans.style||'none',size:ans.size||'none',use:ans.use||'none',quiz_done:!document.getElementById('result').hidden});});
+  ['cta-hero','cta-price','cta-result'].forEach(function(id){var x=document.getElementById(id);x&&x.addEventListener('click',function(){track('cta_click',{button:id})})});
+})();
+</script>
+</body>
+</html>
